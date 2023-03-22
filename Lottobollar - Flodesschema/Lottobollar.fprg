@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Slisk Lindqvist"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-03-22 06:22:44 pm"/>
+        <attribute name="created" value="U2xpc2sgTGluZHF2aXN0O1ZNMTE7MjAyMy0wMy0yMjswNDoxOTozNSBwbTszMTEz"/>
+        <attribute name="edited" value="U2xpc2sgTGluZHF2aXN0O1ZNMTE7MjAyMy0wMy0yMjswNjoyMjo0NCBwbTs0OzMyMjA="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="MenuChoice" type="Integer" array="False" size=""/>
+            <while expression="true">
+                <output expression="&quot;Menu&quot;" newline="True"/>
+                <output expression="&quot;Option1: [S] Start Lottobollar&quot;" newline="True"/>
+                <output expression="&quot;Option 2: [A] End Application&quot;" newline="True"/>
+                <output expression="&quot;Text: Choose&quot;" newline="True"/>
+                <input variable="MenuChoice"/>
+                <if expression="MenuChoice == 1">
+                    <then>
+                        <output expression="&quot;Lottobollar&quot;" newline="True"/>
+                        <declare name="i, guess" type="Integer" array="False" size=""/>
+                        <assign variable="i" expression="0"/>
+                        <declare name="Name" type="String" array="False" size=""/>
+                        <declare name="answer" type="Integer" array="True" size="11"/>
+                        <declare name="Lottobollar" type="Integer" array="True" size="11"/>
+                        <output expression="&quot;This is Lottobollar. What is your name?&quot;" newline="True"/>
+                        <input variable="Name"/>
+                        <output expression="&quot;Welcome &quot;&amp; Name&amp;&quot;!&quot;" newline="True"/>
+                        <for variable="i" start="1" end="10" direction="inc" step="1">
+                            <output expression="&quot;Guess Lottobollens number: (1-21)&quot;" newline="True"/>
+                            <assign variable="Lottobollar[i]" expression="Random(21)"/>
+                            <output expression="&quot;Omg&#229;ng &quot;&amp; i &amp; &quot; av 10: &quot;" newline="True"/>
+                            <input variable="guess"/>
+                            <assign variable="answer[i]" expression="guess"/>
+                            <if expression="answer[i] &gt;= 1 &amp;&amp; answer[i] &lt;= 21">
+                                <then>
+                                    <if expression="answer[i] == lottobollar[i]">
+                                        <then>
+                                            <output expression="&quot;You were RIGHT&quot; &amp; Name &amp; &quot;! The right number was: &quot;&amp; answer[i]" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <output expression="&quot;You were WRONG&quot; &amp; Name &amp; &quot;! The right number was: &quot;&amp; answer[i]" newline="True"/>
+                                        </else>
+                                    </if>
+                                </then>
+                                <else>
+                                    <output expression="&quot;Try Again&quot;" newline="True"/>
+                                    <assign variable="i" expression="i-1"/>
+                                </else>
+                            </if>
+                        </for>
+                        <output expression="&quot;Your Numbers &gt;&gt; &quot;" newline="False"/>
+                        <for variable="i" start="1" end="10" direction="inc" step="1">
+                            <output expression="answer[i]&amp; &quot;, &quot;" newline="False"/>
+                        </for>
+                        <output expression="&quot;The random numbers &gt;&gt; &quot;" newline="False"/>
+                        <for variable="i" start="1" end="10" direction="inc" step="1">
+                            <output expression="lottobollar[i]&amp; &quot;, &quot;" newline="False"/>
+                        </for>
+                        <output expression="&quot;Thank you for playing&quot;" newline="True"/>
+                        <home/>
+                    </then>
+                    <else>
+                        <if expression="MenuChoice == 2">
+                            <then>
+                                <output expression="&quot;Good Bye!&quot;" newline="True"/>
+                            </then>
+                            <else>
+                                <output expression="&quot;Invalid Value&quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
